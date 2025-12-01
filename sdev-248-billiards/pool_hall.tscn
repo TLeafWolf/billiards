@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvyve5d5o5h0a"]
+
+[ext_resource type="PackedScene" uid="uid://b0lttema2dnl4" path="res://table.tscn" id="1_1hk36"]
+[ext_resource type="PackedScene" uid="uid://irv8yipv5bcu" path="res://cue_ball.tscn" id="2_xsmb5"]
+[ext_resource type="PackedScene" uid="uid://clwk574stxeht" path="res://cue.tscn" id="3_m3kw8"]
+[ext_resource type="PackedScene" uid="uid://dubnqp0ql5bhb" path="res://one_ball.tscn" id="4_xsmb5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1hk36"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_xsmb5"]
+sky_material = SubResource("ProceduralSkyMaterial_1hk36")
+
+[sub_resource type="Environment" id="Environment_m3kw8"]
+background_mode = 2
+sky = SubResource("Sky_xsmb5")
+tonemap_mode = 2
+
+[node name="pool hall" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m3kw8")
+
+[node name="table" parent="." instance=ExtResource("1_1hk36")]
+
+[node name="cue ball" parent="." instance=ExtResource("2_xsmb5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11454955, -0.6988019)
+
+[node name="cue" parent="." instance=ExtResource("3_m3kw8")]
+transform = Transform3D(1, 0, 0, 0, 0.9932702, -0.11582133, 0, 0.11582133, 0.9932702, 0.0021398664, 0.18861136, -1.389139)
+gravity_scale = 0.0
+
+[node name="one ball" parent="." instance=ExtResource("4_xsmb5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011394143, 0.1028365, -0.53230435)

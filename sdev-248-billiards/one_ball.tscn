@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dubnqp0ql5bhb"]
+
+[ext_resource type="PackedScene" uid="uid://c3kqi1gwpf0ma" path="res://PoolAssets/6Ball.blend" id="1_x0ab4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7848c"]
+radius = 0.029
+
+[node name="one ball" type="RigidBody3D" groups=["balls", "normal_balls"]]
+
+[node name="6Ball" parent="." instance=ExtResource("1_x0ab4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7848c")
